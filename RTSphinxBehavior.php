@@ -19,7 +19,7 @@ class RTSphinxBehavior extends CActiveRecordBehavior
      * 
      * @var string 
      */
-    public $sphinxTable = 'rt_table';
+    public $sphinxIndex = 'rt_table';
     
     /**
      * Sphinx db component name or component instance
@@ -74,7 +74,7 @@ class RTSphinxBehavior extends CActiveRecordBehavior
         if ($data === null) {
             $data = call_user_func($this->getDataMethod);            
         }       
-        return $this->getCommand()->insert($this->sphinxTable, $data);
+        return $this->getCommand()->insert($this->sphinxIndex, $data);
     }
     
     /**
@@ -91,7 +91,7 @@ class RTSphinxBehavior extends CActiveRecordBehavior
         if ($data === null) {
             $data = call_user_func($this->getDataMethod);            
         }
-        return $this->getCommand()->replace($this->sphinxTable, $data);
+        return $this->getCommand()->replace($this->sphinxIndex, $data);
     }
     
     /**
@@ -111,7 +111,7 @@ class RTSphinxBehavior extends CActiveRecordBehavior
         }
         
         if (count($ids) > 0) {
-            return $this->getCommand()->delete($this->sphinxTable, 'id IN (' . implode(',', $ids) . ')');
+            return $this->getCommand()->delete($this->sphinxIndex, 'id IN (' . implode(',', $ids) . ')');
         }
         return 0;
     }

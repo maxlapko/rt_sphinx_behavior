@@ -25,7 +25,7 @@ class Post extends CActiveRecord
             'RTSphinxBehavior' => array(
                 'class'             => 'ext.rt_sphinx_behavior.RTSphinxBehavior'
                 'getDataMethod'     => array($this, 'getIndexData'),
-                'sphinxTable'       => 'rt_posts',
+                'sphinxIndex'       => 'rt_posts',
                 'sphinxDbComponent' => 'sphinxDbComponent', // component name or Yii::app()->sphinxDbComponent
                 'allowCallbacks'    => true,
                 'disabled'          => false, // on or off 
