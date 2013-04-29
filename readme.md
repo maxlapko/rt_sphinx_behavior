@@ -59,7 +59,7 @@ for ($indexes as $indexData)
 {
     Post::model()->insertIndex($indexData);
     // or
-    Post::model()->replaceIndex($indexData);
+    Post::model()->updateIndex($indexData);
 }
 
 // or multiple delete

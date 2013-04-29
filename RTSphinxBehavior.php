@@ -187,7 +187,7 @@ class SphinxDbCommand extends CDbCommand
         $names = array();
         $placeholders = array();
         foreach ($columns as $name => $value) {
-            $names[] = $this->getConnection()->quoteColumnName($name);
+            $names[] = $name === 'id' ? $name : $this->getConnection()->quoteColumnName($name);
             if ($value instanceof CDbExpression) {
                 $placeholders[] = $value->expression;
                 foreach ($value->params as $n => $v)
